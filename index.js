@@ -2,19 +2,24 @@ function getFirstSelector(selector){
  return document.querySelector(selector);
 }
 
-function nestedTarget(classvar, idvar){
-  return document.querySelector('#idvar.classvar')
+function nestedTarget(){
+  const a = document.getElementById("nested");
+  const b = a.querySelector(".target");
+  return b;
 }
 
 function increaseRankBy(n){
-  classElements = document.querySelectorAll('.ranked-list');
-  for(let i=0;i<classElements.length();i++){
-    classElements[i].innerHTML+=parseInt(n);
+  const a = document.querySelectorAll(".ranked-list li");
+  for(let i=0;i<a.length;i++){
+    a[i].innerHTML=parseInt(a[i].innerHTML) + n;
   }
   return;
 }
 
 function deepestChild(){
-  broadElement = document.querySelector('#grand-node');
-  
+  var elementA = document.getElementById("grand-node");
+    while(elementA.children){
+      elementA = elementA.children;
+    }
+    return elementA;
 }
